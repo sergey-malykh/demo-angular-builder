@@ -7,7 +7,8 @@ import { BehaviorSubject } from "rxjs";
 export class TitleService {
   title$ = new BehaviorSubject<string>('');
 
-  constructor() { }
+  constructor() {
+  }
 
   setTitle(title: string): void {
     this.title$.next(title);

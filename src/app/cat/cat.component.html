@@ -1,1 +1,5 @@
-<img src="http://placekitten.com/300/150" alt="kitty" (click)="localLoggerService.log('cat')">
+<div *ngIf="loading$ | async; else img" class="skeleton">
+</div>
+<ng-template #img>
+  <img src="http://placekitten.com/300/150" width="300" height="150" alt="kitty">
+</ng-template>

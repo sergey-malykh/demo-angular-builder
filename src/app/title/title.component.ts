@@ -17,7 +17,6 @@ export class TitleComponent {
   title$ = this.titleService.title$.pipe(
     skip(1),
     startWith(this.title),
-    tap(console.log)
   );
 
   constructor(private titleService: TitleService) {

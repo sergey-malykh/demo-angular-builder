@@ -21,7 +21,7 @@ export class ManagerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.builder.addTitle('default', 'header').addCat().create(this.injector, this.viewContainerRef)
+    this.builder.addTitle('default title', 'header').addCat().create(this.injector, this.viewContainerRef)
   }
 
   createComponentWithTitle(title: string): void {

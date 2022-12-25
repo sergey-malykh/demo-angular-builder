@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LocalLoggerService } from "../manager/local-logger.service";
+import { mapTo, startWith, timer } from "rxjs";
 
 @Component({
   selector: 'app-cat',
@@ -10,6 +10,8 @@ import { LocalLoggerService } from "../manager/local-logger.service";
   styleUrls: ['./cat.component.scss']
 })
 export class CatComponent {
-constructor(public localLoggerService: LocalLoggerService) {
-}
+  loading$ = timer(1500).pipe(
+    mapTo(false),
+    startWith(true),
+  )
 }

@@ -1,5 +1,8 @@
-<input #input>
-<button (click)="manager.createComponentWithTitle(input.value)">Add</button>
-<button (click)="manager.setTitleEverywhere(input.value)">Set title everywhere</button>
+<form>
+  <input #input>
+  <button type="submit" (click)="$event.preventDefault(); manager.createComponentWithTitle(input.value)">Add</button>
+  <button type="button" (click)="manager.setTitleEverywhere(input.value)">Set title everywhere</button>
+</form>
+
 
 <app-manager #manager></app-manager>

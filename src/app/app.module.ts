@@ -15,4 +15,5 @@ import { ManagerComponent } from "./manager/manager.component";
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

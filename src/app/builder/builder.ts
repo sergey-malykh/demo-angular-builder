@@ -9,6 +9,7 @@ import { TITLE } from "../title/title.component";
 })
 export class Builder {
   private instance: InstanceSettings<Type<InstanceComponent>>;
+
   constructor() {
     this.instance = this.reset();
   }
