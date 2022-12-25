@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject, Inject, InjectionToken } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TitleService } from "./title.service";
+import { skip, startWith, tap } from "rxjs";
+
+export const TITLE = new InjectionToken<string>('title');
 
 @Component({
   selector: 'app-title',
@@ -9,5 +13,13 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./title.component.scss']
 })
 export class TitleComponent {
+  private title = inject(TITLE);
+  title$ = this.titleService.title$.pipe(
+    skip(1),
+    startWith(this.title),
+    tap(console.log)
+  );
 
+  constructor(private titleService: TitleService) {
+  }
 }

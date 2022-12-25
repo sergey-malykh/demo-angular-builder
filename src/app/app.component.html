@@ -1,1 +1,5 @@
-<app-manager></app-manager>
+<input #input>
+<button (click)="manager.createComponentWithTitle(input.value)">Add</button>
+<button (click)="manager.setTitleEverywhere(input.value)">Set title everywhere</button>
+
+<app-manager #manager></app-manager>

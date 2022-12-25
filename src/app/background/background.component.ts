@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { LocalLoggerService } from "../manager/local-logger.service";
 
 @Component({
-  selector: 'app-cat',
+  selector: 'app-background',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './cat.component.html',
-  styleUrls: ['./cat.component.scss']
+  templateUrl: './background.component.html',
+  styleUrls: ['./background.component.scss']
 })
-export class CatComponent {
-constructor(public localLoggerService: LocalLoggerService) {
-}
+export class BackgroundComponent {
+  constructor(public localLoggerService: LocalLoggerService) {
+  }
 }

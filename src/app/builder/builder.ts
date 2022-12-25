@@ -2,6 +2,7 @@ import { Injectable, Injector, Type, ViewContainerRef } from "@angular/core";
 import { BRICK } from "./injectors";
 import { Brick, InstanceSettings } from "./interfaces";
 import { InstanceComponent } from "../instance/instance.component";
+import { TITLE } from "../title/title.component";
 
 @Injectable({
   providedIn: "root"
@@ -35,10 +36,29 @@ export class Builder {
     }).finally(() => this.instance = this.reset())
   }
 
-  addTitle(position: 'header' | 'body'): Builder {
+  addTitle(title: string, position: 'header' | 'body'): Builder {
     const value: Brick = {
       loader: import('../title/title.component').then(c => c.TitleComponent),
       position,
+    };
+    this.instance.providers.push([
+      {
+        provide: BRICK,
+        useValue: value,
+        multi: true,
+      },
+      {
+        provide: TITLE,
+        useValue: title,
+      }
+    ])
+    return this;
+  }
+
+  addCat(): Builder {
+    const value: Brick = {
+      loader: import('../cat/cat.component').then(c => c.CatComponent),
+      position: 'body',
     };
     this.instance.providers.push([
       {
@@ -50,9 +70,9 @@ export class Builder {
     return this;
   }
 
-  addCat(): Builder {
+  addBackground(): Builder {
     const value: Brick = {
-      loader: import('../cat/cat.component').then(c => c.CatComponent),
+      loader: import('../background/background.component').then(c => c.BackgroundComponent),
       position: 'body',
     };
     this.instance.providers.push([
