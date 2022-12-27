@@ -1,9 +1,7 @@
-import { Component, Inject, OnInit, Type } from '@angular/core';
+import { Component, inject, OnInit, Type } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from "../layout/layout.component";
-import { BRICK } from "../builder/injectors";
-import { Brick } from "../builder/interfaces";
-import { TitleComponent } from "../title/title.component";
+import { BRICKS } from "../builder/injectors";
 
 @Component({
   selector: 'app-instance',
@@ -13,11 +11,9 @@ import { TitleComponent } from "../title/title.component";
   styleUrls: ['./instance.component.scss']
 })
 export class InstanceComponent implements OnInit {
+  bricks = inject(BRICKS);
   header: Type<unknown> | undefined;
   body: Type<unknown> | undefined;
-
-  constructor(@Inject(BRICK) public bricks: Brick[]) {
-  }
 
   ngOnInit(): void {
     this.bricks.forEach(brick => {

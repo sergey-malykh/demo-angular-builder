@@ -1,5 +1,5 @@
 import { Injectable, Injector, Type, ViewContainerRef } from "@angular/core";
-import { BRICK } from "./injectors";
+import { BRICKS } from "./injectors";
 import { Brick, InstanceSettings } from "./interfaces";
 import { InstanceComponent } from "../instance/instance.component";
 import { TITLE } from "../title/title.component";
@@ -44,7 +44,7 @@ export class Builder {
     };
     this.instance.providers.push([
       {
-        provide: BRICK,
+        provide: BRICKS,
         useValue: value,
         multi: true,
       },
@@ -63,7 +63,7 @@ export class Builder {
     };
     this.instance.providers.push([
       {
-        provide: BRICK,
+        provide: BRICKS,
         useValue: value,
         multi: true,
       }
@@ -78,7 +78,7 @@ export class Builder {
     };
     this.instance.providers.push([
       {
-        provide: BRICK,
+        provide: BRICKS,
         useValue: value,
         multi: true,
       }
