@@ -21,6 +21,9 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
+        angular_dist_build_folder: dist/dab
+        base_href: /demo-angular-builder/
+        build_configuration: production
 
     - name: Build
       run: |
